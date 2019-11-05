@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: community-api-adapter
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Administrator
+Implementation-Vendor-Id: com.qhgctech
+Build-Jdk: 1.8.0_181
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/community-parents/community-api/community-api-adapt
+ er
+Created-By: Maven Integration for Eclipse
+

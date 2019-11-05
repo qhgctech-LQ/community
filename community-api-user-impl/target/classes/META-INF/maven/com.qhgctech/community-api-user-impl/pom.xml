@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.qhgctech</groupId>
+    <artifactId>community-parents</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>community-api-user-impl</artifactId>
+  
+	<dependencies>
+ 		<dependency>
+			<groupId>com.qhgctech</groupId>
+			<artifactId>community-api-user</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		<!-- springboot 整合 mybatis -->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<!-- springboot 整合 pagehelper分页插件 -->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper-spring-boot-starter</artifactId>
+			<version>1.2.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.7</version><!--$NO-MVN-MAN-VER$-->
+		</dependency>
+	</dependencies>
+	
+	<build>
+        <plugins>
+	       <plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+                	<mainClass>com.qhgctech.payment.AppUser</mainClass>
+            	</configuration>
+			</plugin>
+            <plugin>
+			    <groupId>com.spotify</groupId>
+			    <artifactId>docker-maven-plugin</artifactId>
+			    <configuration>
+			        <imageName>leiqi/user:v1</imageName>
+			        <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
+			        <skipDockerBuild>false</skipDockerBuild>
+			        <resources>
+			            <resource>
+			                <directory>${project.build.directory}</directory>
+			                <include>${project.build.finalName}.jar</include>
+			            </resource>
+			        </resources>
+			    </configuration>
+			</plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,4 @@
+FROM java:8
+ADD springcloud-2.0-eureka_01-0.0.1-SNAPSHOT.jar /app.jar
+EXPOSE 8100/tcp
+ENTRYPOINT ["java","-jar","/app.jar"]
